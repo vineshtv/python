@@ -34,3 +34,15 @@ def greet_generator():
 
 message_func = greet_generator()
 print message_func()
+
+def get_text(name):
+    return "Hello {0}.".format(name)
+
+def get_full_greeting(func):
+    def format_greeting(name):
+        return "{0}. How are you?".format(func(name))
+
+    return format_greeting
+
+full_greeting = get_full_greeting(get_text)
+print full_greeting("Vinesh")
